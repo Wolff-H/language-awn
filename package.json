@@ -1,7 +1,7 @@
 {
   "name": "language-awn",
   "main": "./lib/language-awn",
-  "version": "0.8.1",
+  "version": "0.0.0",
   "description": "A language as written notes",
   "keywords": [],
   "activationCommands": {
