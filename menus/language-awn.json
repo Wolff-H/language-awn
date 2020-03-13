@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle language-awn",
+        "command": "language-awn:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "language-awn",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "language-awn:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

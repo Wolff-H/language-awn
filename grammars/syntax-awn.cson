@@ -1,0 +1,120 @@
+﻿scopeName: 'source.awn'
+name: 'As Written Notes'
+fileTypes: ['awn']
+patterns:[
+    # 章节
+    {
+        match: '^\\s*(#+)([0-9]+\\.\\s*( {0,1}\\S+)+)'
+        captures:
+            # 1:
+            #     name: 'comment'
+            2:
+                name: 'meta.class'
+    }
+    # 主题
+    {
+        match: '^\\s*([0-9]+|\\*|\\+|\\-)\\.\\s*( {0,1}\\S+)+'
+        name: 'constant'
+    }
+    # 属性
+    {
+        match: '^\\s*[^ \\[【即为如于有是了说设求]+：'
+        name: 'entity.name.function'
+    }
+    # 行内弱化 - 彻底的
+    {
+        match: '\\/\\/.*$'
+        name: 'comment'
+    }
+    # 行内弱化 - 仅最后一个连续字串
+    {
+        match: '(\\S+)  $'
+        captures:
+            1:
+                name: 'comment'
+    }
+    # 行内弱化 - 允许连续一个空格
+    {
+        match: '( {2,}){0,1}((\\S {0,1})+)   $'
+        captures:
+            2:
+                name: 'comment'
+    }
+    # 术语、项目
+    {
+        match: '"([^"]*)"'
+        captures:
+            1:
+                name: 'string'
+    }
+    # 强调
+    {
+        match: '`([^`]*)`'
+        captures:
+            1:
+                name: 'entity.name.tag'
+    }
+    # 写作层次标签开始界（行内实现）
+    {
+        match: '\\s*(【\\S+：)'
+        captures:
+            1:
+                name: 'keyword'
+    }
+    # 写作层次标签结束界（行内实现）
+    {
+        match: '】 [^ ]$'
+        name: 'keyword'
+    }
+    # 相关层次标签开始界（行内实现）
+    {
+        match: '\\s*(\\[\\S+：)'
+        captures:
+            1:
+                name: 'keyword'
+    }
+    # 相关层次标签结束界（行内实现）
+    {
+        # match: '(^|[ \\t]+)\\] [^ ]$'
+        match: '] [^ ]$'
+        name: 'keyword'
+    }
+    # {
+    #     match: '.*(\\]) $'
+    #     captures:
+    #         1:
+    #             name: 'keyword'
+    # }
+    # 关键字 - 例子：e.g.
+    {
+        match: '^\\s*(e\\.g\\.)[0-9]*'
+        captures:
+            1:
+                name: 'entity.name.function'
+    }
+    # 关键字 - 映射：~:
+    {
+        match: '(\\~:)[^\\\\]*(\\\\{0,1})'
+        captures:
+            1:
+                name: 'keyword.kw_mapping'
+            2:
+                name: 'keyword'
+    }
+    # 元数据、文档签名
+    {
+        match: '>>>>.*'
+        name: 'support.function'
+    }
+    # 链接
+    {
+        match: 'http:.*|https:.*'
+        name: 'link.underline'
+    }
+    # # 清除该行全部的语法类
+    # # 【待补】
+    # {
+    #     match: '.*    $'
+    #     name: 'source.awn'
+    # }
+]
