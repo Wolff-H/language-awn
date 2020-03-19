@@ -4,6 +4,8 @@ The awn (as written notes) is a language of my own, mainly for making note purpo
 The package is still in development. I will update progress when there comes so.
 The grammar is already completely well designed, you can now apply its full syntax and have highlightings.
 
+PS. Although I turned to use VS Code now for coding, I must say I do love Atom's UI and UX design. Therefore Atom is still my preferred editor for writting notes.
+
 ## examples
 For examples please see the [wiki page](https://github.com/Wolff-H/language-awn/wiki/Demo)
 
